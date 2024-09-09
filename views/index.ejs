@@ -1,6 +1,6 @@
-<div class="auther">
+<div class="author">
     <h1 class="author__heading">Hi, I am Akshat</h1>
-    <p class="author__body">web Developer</p>
+    <p class="author__body">Web Developer</p>
 </div>
 
 <img src="/img/aga-unsplash.jpg" alt="person looking out through window" class="hero-image" width="481" height="328">
@@ -9,12 +9,20 @@
     <h2 class="articles__heading">Latest post</h2>
 
     <ul class="article__ul">
+
+        <% data.forEach(post => { %>
+        
         <li>
-            <a href="#"></a>
-            <span>Post Title</span>
-            <span class="articles-list__data">Date</span>
+            <!-- Moved the post title inside the <a> tag -->
+            <a href="/post/<%= post._id %>">
+                <span><%= post.title %></span>
+            </a>
+            <span class="articles-list__date"><%= post.createdAt.toDateString() %></span>
         </li>
+        <% }) %>
+
     </ul>
-<a href="#" class="pagination">&lt; View Older Posts</a>
+
+    <a href="#" class="pagination">&lt; View Older Posts</a>
 
 </section>
